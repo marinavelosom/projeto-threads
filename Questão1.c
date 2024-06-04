@@ -11,16 +11,16 @@
 #define QDT_ARQUIVOS 3
 #define TAM_MAX_PALAVRA 100
 
-// definindo a palavra que desejamos procurar
+// definindo palavra 
 const char *palavra_procurada = "programa";
 
-// variável global para contar ocorrências
+// contador de palavras
 int total_leituras = 0;
 
-// mutex para garantir a segurança na atualização do contador global
+// mutex 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
-// função para contar a ocorrência da palavra em um arquivo específico
+// função para contar a leitura da palavra em um arquivo 
 void *contar_leituras_palavra(void *arquivo) {
     char *caminho = (char *)arquivo;
     int ocorrencias = 0;
@@ -41,7 +41,7 @@ void *contar_leituras_palavra(void *arquivo) {
         }
     }
 
-    // atualiza o contador global de forma segura usando um mutex
+    // atualiza o contador global com mutex
     pthread_mutex_lock(&mutex);
     total_leituras += ocorrencias;
     pthread_mutex_unlock(&mutex);
@@ -54,7 +54,6 @@ int main() {
     // arquivos a serem lidos
     char *caminhos_arquivos[QDT_ARQUIVOS] = {"arquivo1.txt", "arquivo2.txt", "arquivo3.txt"};
 
-    // threads para processar os arquivos
     pthread_t threads[QDT_ARQUIVOS];
 
     // cria e inicia uma thread para cada arquivo
