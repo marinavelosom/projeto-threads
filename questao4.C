@@ -87,14 +87,12 @@ void *verificarSubgrade(void *params) {
 
 int main() {
 
-    int tab[TAM][TAM];
+    int tabuleiro[TAM][TAM];
+    char entrada[TAM * TAM + 1]; // String para armazenar a entrada do usuário
+
     // Receber o tabuleiro do usuário
-    printf("Digite o tabuleiro de Sudoku (9 linhas, 9 colunas, números de 1 a 9):\n");
-    for (int i = 0; i < TAM; i++) {
-        for (int j = 0; j < TAM; j++) {
-            scanf("%d", &tab[i][j]);
-        }
-    }
+    printf("Digite o tabuleiro de Sudoku como uma única linha (81 números de 1 a 9, sem espaços):\n");
+    scanf("%81s", entrada);
 
 
     pthread_t threads[TAM * 3];
