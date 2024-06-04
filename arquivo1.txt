@@ -1,0 +1,11 @@
+  O projeto valerá de 0 a 10 e será levada em consideração a organização dos códigos de cada solução. Escreva códigos legíveis e com comentários sobre cada decisão importante feita nos algoritmos. As questões deverão ser implementadas em pthreads e utilizando o sistema operacional Linux. Ademais, caso uma questão necessite de arquivos, a equipe deverá disponibilizar arquivos exemplos de entrada. O não cumprimento das regras acarretará em perdas de pontos na nota final.
+Atenção: Usar somente pthreads e Linux.
+
+1. Desenvolva um programa que conte a ocorrência de uma palavra específica em X arquivos de texto. O programa deve usar threads, onde cada thread é responsável por buscar a palavra em um arquivo diferente. Use mutexes para atualizar um contador global de forma segura. O programa deve imprimir o total de ocorrências da palavra em todos os arquivos.
+
+
+2. Crie um programa em C que utilize o algoritmo de ordenação bubble sort de maneira concorrente. O programa deve dividir um array em N partes, e cada thread deve ordenar uma parte. Após todas as threads completarem a ordenação de suas respectivas partes, uma thread final deve mesclar todos os segmentos para formar o array ordenado completo. Utilize barriers para sincronizar a conclusão das ordenações parciais antes de começar a mesclagem.
+
+3. Implemente um simulador de operações bancárias usando threads. O programa deve ter N threads representando clientes e uma thread representando o banco. Os clientes devem realizar operações como depósito, saque e consulta de saldo. O programa deve garantir que as operações sejam atômicas em uma mesma conta para evitar condições de corrida. 
+
+4. O sudoku é jogado em um tabuleiro de 9x9, dividido em nove subgrades de 3x3. O objetivo é preencher o tabuleiro de modo que cada linha, cada coluna e cada subgrade contenha todos os números de 1 a 9 sem repetições. Faça um programa usando pthreads que recebe uma matriz 9x9 e confere, usando múltiplas threads,  se é uma solução válida de sudoku.
