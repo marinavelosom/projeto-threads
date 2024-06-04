@@ -23,7 +23,7 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 // função para contar a leitura da palavra em um arquivo 
 void *contar_leituras_palavra(void *arquivo) {
     char *caminho = (char *)arquivo;
-    int ocorrencias = 0;
+    int leituras = 0;
 
     // abre arquivo
     FILE *file = fopen(caminho, "r");
@@ -37,13 +37,13 @@ void *contar_leituras_palavra(void *arquivo) {
     while (fscanf(file, "%s", palavra) != EOF) {
         // verifica se é a palavra
         if (strcmp(palavra, palavra_procurada) == 0) {
-            ocorrencias++;
+            leituras++;
         }
     }
 
     // atualiza o contador global com mutex
     pthread_mutex_lock(&mutex);
-    total_leituras += ocorrencias;
+    total_leituras += leituras;
     pthread_mutex_unlock(&mutex);
 
     fclose(file);
